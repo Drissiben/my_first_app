@@ -1,4 +1,11 @@
 Here where are new tweets
+<% flash.each do |key, value| %>
+<div class="alert alert-<%= key %>">
+	<%= value %>
+</div>
+<% end %>
+
+
 <%= simple_form_for @tweet, url: tweets_path, method: 'post' do |f| %>
 	<%= f.input "content" %>
 	<%= f.button "submit", "Create Tweet" %>
@@ -9,3 +16,7 @@ Here where are new tweets
 <% @tweets.each do |tweet| %>
 <%= tweet.content %><br/>
 	<% end %>
+
+<div style="color: blue; font-weight: bold">
+	we are in the div
+</div>

@@ -1,2 +1,3 @@
 class Tweet < ActiveRecord::Base
-end
+	validates :content, length: {maximum: 10}
+	end

@@ -6,7 +6,11 @@ end
 
 def create
 	@tweet_to_create= Tweet.new(tweet_params)
-	@tweet_to_create.save
+	if @tweet_to_create.save
+		flash.now["success"] = "You have created a new tweet"
+	else
+		flash.now["danger"] = "Please review the errors below."
+	end
 
 	@tweet= Tweet.new
 	@tweets = Tweet.all
