@@ -5,9 +5,10 @@ def new
 end
 
 def create
-	@tweet= Tweet.new(tweet_params)
-	@tweet.save
+	@tweet_to_create= Tweet.new(tweet_params)
+	@tweet_to_create.save
 
+	@tweet= Tweet.new
 	@tweets = Tweet.all
 
 	print "the tweet is" + @tweet.inspect.to_s
