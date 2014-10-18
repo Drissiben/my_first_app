@@ -1,0 +1,11 @@
+Here where are new tweets
+<%= simple_form_for @tweet do |f| %>
+	<%= f.input "content" %>
+	<%= f.button "submit" %>
+	<% end %>
+
+Here all the tweets ever made:
+
+<% @tweets.each do |tweet| %>
+<%= tweet.content %>
+	<% end %>
