@@ -34,7 +34,13 @@ end
 	def process_form_to_follow_user
 		@users = User.all.reject{|user| user == current_user}
 		@user = User.find(params["user"]["user_to_follow"])
-		current_user.follow(@user)
+
+
+		if params["unfollow"]
+			current_user.unfollow(@user)
+		elsif params["follow"]
+			current_user.follow(@user)
+		end
 
 		render 'index'
 	end
