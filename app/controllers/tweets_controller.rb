@@ -31,7 +31,15 @@ end
 		@users = User.all.reject{|user| user == current_user}
 	end
 
+	def process_form_to_follow_user
+		@users = User.all.reject{|user| user == current_user}
+		@user = User.find(params["user"]["user_to_follow"])
+		current_user.follow(@user)
+
+		render 'index'
+	end
+
 	def tweet_params
-		return params.require("tweet").permit("content")
+		params.require("tweet").permit("content")
 	end
 end
