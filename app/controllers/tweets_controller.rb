@@ -28,6 +28,7 @@ def show
 end
 
 	def index
+		@users = User.all.reject{|user| user == current_user}
 	end
 
 	def tweet_params
